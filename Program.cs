@@ -54,14 +54,22 @@ partial class Program
         WoWCommands commands = new WoWCommands(wow);
         commands.ResetTouchZero(wow);
 
+
+        Dictionary<string,string> macro = new Dictionary<string,string>();
+        macro.Add("Attaque", "t121212f");
+        macro.Add("Cross", "dqzsqdsz");
+
         while (true)
         {
             Console.WriteLine("next ?");
             string woWCommands = Console.ReadLine();
             bool isTurnLeft = (woWCommands == "7");
 
-            if (woWCommands == "Attaque")
-                commands.MoveWithString("t121212f", 2);
+            if (macro.ContainsKey(woWCommands))
+                {
+                commands.MoveWithString(macro[woWCommands], 2);
+            }
+
             else if (woWCommands == "Loop")
             { 
              while (true)
